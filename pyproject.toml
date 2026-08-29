@@ -1,0 +1,24 @@
+[project]
+name = "mod01"
+version = "0.1.0"
+description = "Examples of calling OpenAI LLMs with REST API, the OpenAI SDK, and LangChain."
+readme = "README.md"
+authors = [
+    { name = "koyyalokesh", email = "koyyalokesh9@example.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "dotenv>=0.9.9",
+    "langchain>=1.3.18",
+    "langchain-openai>=1.6.0",
+    "numpy>=2.5.2",
+    "openai>=3.6.0",
+    "requests>=2.34.2",
+]
+
+[project.scripts]
+mod01 = "mod01:main"
+
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13.0"]
+build-backend = "uv_build"
