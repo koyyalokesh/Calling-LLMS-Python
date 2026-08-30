@@ -478,6 +478,7 @@ dependencies = [
     { name = "langchain-openai" },
     { name = "numpy" },
     { name = "openai" },
+    { name = "pydantic" },
     { name = "requests" },
 ]
 
@@ -488,6 +489,7 @@ requires-dist = [
     { name = "langchain-openai", specifier = ">=1.6.0" },
     { name = "numpy", specifier = ">=2.5.2" },
     { name = "openai", specifier = ">=3.6.0" },
+    { name = "pydantic", specifier = ">=2.13.5" },
     { name = "requests", specifier = ">=2.34.2" },
 ]
 
