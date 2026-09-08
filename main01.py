@@ -18,7 +18,7 @@ payload = {
     "messages":[
         {
             "role":"user",
-            "content":"what is ai.how it is evolved"
+            "content":"time in india now?."
         }
     ]
 }
