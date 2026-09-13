@@ -18,7 +18,7 @@ payload = {
     "messages":[
         {
             "role":"user",
-            "content":"time in india now?."
+            "content":"multiplication of 647674 and 75485."
         }
     ]
 }
