@@ -50,7 +50,7 @@ messages = [
         content="You are a helpful assistant. Use the tools when they fit."
     ),
     HumanMessage(
-        content="what time is it in mumbai, and what is 98765 times 43210?"
+        content="product of 2 and 5"
     ),
 ]
 
@@ -90,4 +90,3 @@ while True:
     
 print("\nMessages in the conversation:", [type(m).__name__ for m in messages])
 
-print(messages)
