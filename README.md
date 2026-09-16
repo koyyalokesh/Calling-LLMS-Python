@@ -54,7 +54,7 @@ Each Python file is an independent, runnable lesson. You can explore them in the
 Run an individual lesson with `uv run python` followed by its filename:
 
 ```bash
-uv run python main01.py
+uv run python 01_rest_api_chat_completions.py
 ```
 
 Most scripts make a live request to OpenAI, so they require a valid API key and may incur API usage costs.
@@ -65,54 +65,55 @@ Most scripts make a live request to OpenAI, so they require a valid API key and 
 
 | File | What it demonstrates |
 | --- | --- |
-| `main01.py` | Calls the Chat Completions REST endpoint directly with `requests`. |
-| `main02.py` | Calls the model with the official OpenAI Python SDK and the Responses API. |
-| `main03.py` | Makes a basic request using LangChain's `ChatOpenAI` integration. |
+| `01_rest_api_chat_completions.py` | Calls the Chat Completions REST endpoint directly with `requests`. |
+| `02_openai_sdk_responses.py` | Calls the model with the official OpenAI Python SDK and the Responses API. |
+| `03_langchain_basic_chat.py` | Makes a basic request using LangChain's `ChatOpenAI` integration. |
 
 ### 2. Prompting and Output Handling
 
 | File | What it demonstrates |
 | --- | --- |
-| `main04.py` | Takes a topic from the terminal and inserts it into a prompt template. |
-| `prompt_template.py` | Uses system and human messages with variables such as topic, level, and word limit. |
-| `main05.py` | Requests structured output and validates it with a Pydantic `Product` model. |
-| `main07.py` | Converts model responses into plain text or parsed JSON. |
+| `04_interactive_prompt_template.py` | Takes a topic from the terminal and inserts it into a prompt template. |
+| `05_teacher_prompt_chain.py` | Uses a prompt-and-model chain to explain a topic at a chosen learning level. |
+| `06_structured_output_pydantic.py` | Requests structured output and validates it with a Pydantic `Product` model. |
+| `08_prompt_messages.py` | Uses system and human messages with variables such as topic, language, and word limit. |
+| `09_output_parsers.py` | Converts model responses into plain text or parsed JSON. |
 
 ### 3. Vision and Streaming
 
 | File | What it demonstrates |
 | --- | --- |
-| `main06.py` | Sends text and an image URL to the model for image description. |
-| `stream_demo.py` | Streams response chunks directly from the model. |
-| `stream_demo2.py` | Streams output from a complete LangChain prompt-and-model chain. |
+| `07_vision_image_description.py` | Sends text and an image URL to the model for image description. |
+| `10_streaming_llm.py` | Streams response chunks directly from the model. |
+| `11_streaming_chain.py` | Streams output from a complete LangChain prompt-and-model chain. |
 
 ### 4. Tools and Tool Calling
 
 | File | What it demonstrates |
 | --- | --- |
-| `first_tool.py` | Defines `multiply` and `current_time` tools and invokes them directly. |
-| `tool_call.py` | Lets a model select a matching tool from tool descriptions. |
-| `tool_call2.py` | Implements one complete manual tool call and returns the result to the model. |
-| `tool_calling_loop.py` | Implements a multi-step tool-calling loop, including tool execution and conversation messages. |
-| `tool-input-valid.py` | Uses a Pydantic schema to validate discount-tool arguments. |
-| `tool-input-valid2.py` | Uses constrained and enumerated inputs for a currency-conversion tool. |
+| `12_tool_basics.py` | Defines `multiply` and `current_time` tools and invokes them directly. |
+| `13_tool_selection.py` | Lets a model select a matching tool from tool descriptions. |
+| `14_manual_tool_call.py` | Implements one complete manual tool call and returns the result to the model. |
+| `15_manual_tool_calling_loop.py` | Implements a multi-step tool-calling loop, including tool execution and conversation messages. |
+| `16_discount_tool_validation.py` | Uses a Pydantic schema to validate discount-tool arguments. |
+| `17_currency_tool_validation.py` | Uses constrained and enumerated inputs for a currency-conversion tool. |
 
 ### 5. Agents and Memory
 
 | File | What it demonstrates |
 | --- | --- |
-| `frst_agent.py` | Creates a basic agent that can use time and multiplication tools. |
-| `more_tool_agent.py` | Creates a store-support agent that can check orders, stock, discounts, and delivery estimates. |
-| `agent_stream.py` | Streams the agent workflow, including tool requests and tool results. |
-| `agent-tool-memory.py` | Uses LangGraph's `InMemorySaver` to retain separate conversations by thread ID. |
-| `tool-agent-project.py` | Builds a stateful customer-support agent with order lookup, delivery estimates, refunds, escalation, safety rules, and structured replies. |
+| `18_basic_agent.py` | Creates a basic agent that can use time and multiplication tools. |
+| `19_store_support_agent.py` | Creates a store-support agent that can check orders, stock, discounts, and delivery estimates. |
+| `20_streaming_agent.py` | Streams the agent workflow, including tool requests and tool results. |
+| `21_agent_memory.py` | Uses LangGraph's `InMemorySaver` to retain separate conversations by thread ID. |
+| `22_customer_support_agent.py` | Builds a stateful customer-support agent with order lookup, delivery estimates, refunds, escalation, safety rules, and structured replies. |
 
 ### 6. Image Generation
 
 | File | What it demonstrates |
 | --- | --- |
-| `image_generation.py` | Uses LangChain to write an image prompt, then uses the OpenAI SDK to generate and save an image. |
-| `Demo.png` | Example image generated by `image_generation.py`. |
+| `23_image_generation.py` | Uses LangChain to write an image prompt, then uses the OpenAI SDK to generate and save an image. |
+| `Demo.png` | Example image generated by `23_image_generation.py`. |
 
 ## Main Technologies
 
