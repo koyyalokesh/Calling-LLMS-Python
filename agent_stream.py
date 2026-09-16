@@ -36,7 +36,7 @@ question = "I want to go to Bengaluru for 3 nights from mumbai.what is my total 
 
 for chunk in agent.stream(
     {"messages":[{"role":"user","content":question}]},
-    
+    stream_mode="updates"
 ):
     
     for node, update in chunk.items():

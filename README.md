@@ -1,33 +1,135 @@
-# Calling LLMs in Python
+# Calling LLMs and Building Agents in Python
 
-This project demonstrates three ways to interact with OpenAI language models using Python and `gpt-4o-mini`.
+A practical collection of Python examples for learning how to work with OpenAI models. The project starts with simple API calls and gradually introduces LangChain prompts, structured outputs, streaming, tools, agents, memory, vision, and image generation.
 
-## Methods Covered
+Each Python file is an independent, runnable lesson. You can explore them in the suggested learning order below.
 
-1. **REST API** — Sends an HTTP POST request using the `requests` library.
-2. **OpenAI SDK** — Uses the official OpenAI Python SDK.
-3. **LangChain** — Uses LangChain's `ChatOpenAI` wrapper.
+## What You Will Learn
+
+- Call OpenAI models through the REST API.
+- Call OpenAI models using the official Python SDK.
+- Use OpenAI models with LangChain.
+- Create reusable prompt templates and chains.
+- Receive structured, validated data from a model using Pydantic.
+- Parse text and JSON model outputs.
+- Send an image to a model and ask it to describe the image.
+- Stream model and agent responses as they are generated.
+- Define Python functions as tools for an LLM to use.
+- Validate tool arguments with Pydantic schemas.
+- Build a manual tool-calling loop.
+- Build LangChain agents that choose and call tools automatically.
+- Preserve an agent conversation with LangGraph memory.
+- Build a small customer-support agent with order and refund workflows.
+- Generate an image from an LLM-written prompt.
+
+## Requirements
+
+- Python 3.13 or later
+- An OpenAI API key
+- [uv](https://docs.astral.sh/uv/) package manager
 
 ## Setup
 
-1. Create a `.env` file in the project root:
+1. Clone the repository and enter its directory.
+
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/Calling-llms-Python.git
+   cd Calling-llms-Python
+   ```
+
+2. Create a file named `.env` in the project root.
 
    ```env
    OPENAI_API_KEY=your_openai_api_key
    ```
 
-2. Install dependencies:
+3. Install the project dependencies.
 
    ```bash
    uv sync
    ```
 
-## Run Examples
+## Running an Example
+
+Run an individual lesson with `uv run python` followed by its filename:
 
 ```bash
-uv run python main01.py  # REST API
-uv run python main02.py  # OpenAI SDK
-uv run python main03.py  # LangChain
+uv run python main01.py
 ```
 
-> Never commit your `.env` file or API key to GitHub.
+Most scripts make a live request to OpenAI, so they require a valid API key and may incur API usage costs.
+
+## Suggested Learning Order
+
+### 1. Calling an LLM
+
+| File | What it demonstrates |
+| --- | --- |
+| `main01.py` | Calls the Chat Completions REST endpoint directly with `requests`. |
+| `main02.py` | Calls the model with the official OpenAI Python SDK and the Responses API. |
+| `main03.py` | Makes a basic request using LangChain's `ChatOpenAI` integration. |
+
+### 2. Prompting and Output Handling
+
+| File | What it demonstrates |
+| --- | --- |
+| `main04.py` | Takes a topic from the terminal and inserts it into a prompt template. |
+| `prompt_template.py` | Uses system and human messages with variables such as topic, level, and word limit. |
+| `main05.py` | Requests structured output and validates it with a Pydantic `Product` model. |
+| `main07.py` | Converts model responses into plain text or parsed JSON. |
+
+### 3. Vision and Streaming
+
+| File | What it demonstrates |
+| --- | --- |
+| `main06.py` | Sends text and an image URL to the model for image description. |
+| `stream_demo.py` | Streams response chunks directly from the model. |
+| `stream_demo2.py` | Streams output from a complete LangChain prompt-and-model chain. |
+
+### 4. Tools and Tool Calling
+
+| File | What it demonstrates |
+| --- | --- |
+| `first_tool.py` | Defines `multiply` and `current_time` tools and invokes them directly. |
+| `tool_call.py` | Lets a model select a matching tool from tool descriptions. |
+| `tool_call2.py` | Implements one complete manual tool call and returns the result to the model. |
+| `tool_calling_loop.py` | Implements a multi-step tool-calling loop, including tool execution and conversation messages. |
+| `tool-input-valid.py` | Uses a Pydantic schema to validate discount-tool arguments. |
+| `tool-input-valid2.py` | Uses constrained and enumerated inputs for a currency-conversion tool. |
+
+### 5. Agents and Memory
+
+| File | What it demonstrates |
+| --- | --- |
+| `frst_agent.py` | Creates a basic agent that can use time and multiplication tools. |
+| `more_tool_agent.py` | Creates a store-support agent that can check orders, stock, discounts, and delivery estimates. |
+| `agent_stream.py` | Streams the agent workflow, including tool requests and tool results. |
+| `agent-tool-memory.py` | Uses LangGraph's `InMemorySaver` to retain separate conversations by thread ID. |
+| `tool-agent-project.py` | Builds a stateful customer-support agent with order lookup, delivery estimates, refunds, escalation, safety rules, and structured replies. |
+
+### 6. Image Generation
+
+| File | What it demonstrates |
+| --- | --- |
+| `image_generation.py` | Uses LangChain to write an image prompt, then uses the OpenAI SDK to generate and save an image. |
+| `Demo.png` | Example image generated by `image_generation.py`. |
+
+## Main Technologies
+
+- [OpenAI Python SDK](https://github.com/openai/openai-python)
+- [LangChain](https://python.langchain.com/)
+- [LangGraph](https://langchain-ai.github.io/langgraph/)
+- [Pydantic](https://docs.pydantic.dev/)
+- [uv](https://docs.astral.sh/uv/)
+
+## Project Structure
+
+- `pyproject.toml` defines project metadata and dependencies.
+- `uv.lock` locks dependency versions for reproducible installations.
+- `.env` stores your local API key.
+- `.gitignore` prevents secrets, virtual environments, and Python-generated files from being committed.
+- `src/mod01/__init__.py` contains the small installable package entry point.
+
+## Security Note
+
+Never commit `.env` or your OpenAI API key to GitHub. The included `.gitignore` already excludes `.env`, virtual environments, and Python cache files.
